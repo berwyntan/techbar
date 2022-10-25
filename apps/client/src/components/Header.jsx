@@ -1,5 +1,5 @@
 import Container from "react-bootstrap/Container"; // container from bootstrap for ui
-import logo1 from "../images/logo1.png";
+import logo1 from "../images/logo-1.png";
 import Nav from "react-bootstrap/Nav"; // for making nav inside the navbar
 import Navbar from "react-bootstrap/Navbar"; // navbar for header from bootstrap
 
@@ -27,3 +27,5 @@ const Header = ({}) => {
     </Navbar>
   );
 };
+
+export default Header

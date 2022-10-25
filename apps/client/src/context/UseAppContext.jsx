@@ -3,6 +3,7 @@ import { createContext, useState } from "react";
 const AppContext = createContext({});
 
 export const AppProvider = ({ children }) => {
+
   const [categoryData, setCategoryData] = useState([]);
 
   return (
@@ -19,24 +20,31 @@ export const AppProvider = ({ children }) => {
 
 export default AppContext;
 
+
+
 // !this is what I propose
-/*
-import { createContext, useState } from "react";
 
-const AppContext = createContext();
+// import { createContext, useState, useContext } from "react";
 
-export function UseAppContextProvider({ children }) {
-    return (
-        <AppContext.Provider 
-        //here we return all functions >
-  {children}
-        </AppContext.Provider>
-    );
-};
+// const AppContext = createContext();
 
-// export the whole context
-export function useAppContext() {
-    return useContext(AppContext);
-}
+// export function UseAppContextProvider({ children }) {
 
-*/
+//   const [categoryData, setCategoryData] = useState([]);
+
+//     return (
+//         <AppContext.Provider value={{
+//             categoryData,
+//             setCategoryData,
+//           }}
+//         >        
+//         {children}
+//         </AppContext.Provider>
+//     );
+// };
+
+// export default AppContext
+
+
+
+/* //here we return all functions */
