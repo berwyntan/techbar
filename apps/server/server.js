@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -9,12 +10,11 @@ const session = require('express-session');
 const productRouter = require('./routes/productRouter');
 const categoryRouter = require('./routes/categoryRouter');
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 // mongo
-const MONGO_URL = "mongodb+srv://techbar:123@cluster0.szwbbwq.mongodb.net/?retryWrites=true&w=majority"
-mongoose.connect(MONGO_URL);
+mongoose.connect(process.env.MONGO_URL);
 mongoose.set("debug", true);
 
 // middleware
