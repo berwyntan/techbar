@@ -4,13 +4,12 @@ import Categories from "./pages/Categories";
 import "./App.css";
 
 function App() {
-  
-
+  // wrapping the while app in context
   return (
-    <div className="App">
-      TECH BAR
-      <Categories />
-    </div>
+    <UseAppContextProvider>
+      {/* We need app router here for pages rediraction*/}
+      <AppRouter />
+    </UseAppContextProvider>
   );
 }
 
