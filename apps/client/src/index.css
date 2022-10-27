@@ -87,69 +87,242 @@
   color: #000;
   font-weight: 400;
 }
-/*From VITE
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+img,
+.basket-module,
+.basket-labels,
+.basket-product {
+  width: 100%;
+}
+
+.basket,
+.summerytab {
+  padding: 0 1rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.basket {
+  width: 70%;
+}
+
+.basket-module {
+  color: #111;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3125rem;
+}
+
+/* ! login page css */
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.loginform {
+  background: #ffffff;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.loginform input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.loginform button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #7635f0;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.loginform button:hover,
+.loginform button:active,
+.loginform button:focus {
+  background: #7635f0;
+}
+.loginform .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.loginform .message a {
+  color: #7635f0;
+  text-decoration: none;
+}
+.logincontainer {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.logincontainer:before,
+.logincontainer:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.logincontainer .info {
+  margin: 50px auto;
+  text-align: center;
+}
+.logincontainer .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+.logincontainer .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+.logincontainer .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+.logincontainer .info span .fa {
+  color: #ef3b3a;
+}
+.loginbody {
+  background: #7635f0; /* fallback for old browsers */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  min-height: 100vh;
+  max-height: max-content;
+  display: flex;
+}
+
+/*! checout css*/
+
+* {
+  box-sizing: border-box;
+}
+
+.checkoutrow {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.checkoutcol-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.checkoutcol-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.checkoutcol-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.checkoutcol-25,
+.checkoutcol-50,
+.checkoutcol-75 {
+  padding: 0 16px;
+}
+
+.checkoutcontainer {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+.checkoutinput {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.checkoutinput50 {
+  width: 50%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.checkoutlabel {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.checkoutbtn {
+  background-color: #04aa6d;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.checkoutbtn:hover {
+  background-color: #45a049;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  color: #2196f3;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+hr {
+  border: 1px solid lightgrey;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.checkoutspan {
+  float: right;
+  color: grey;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* ! Responsive layout - when the screen is less than 800px wide, 
+   make the two checkoutcolumns stack on top of each other 
+  (also change the direction of cart - make the "cart" checkoutcolumn go on top) */
+@media (max-width: 800px) {
+  .checkoutrow {
+    flex-direction: checkoutcolumn-reverse;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+  .checkoutcol-25 {
+    margin-bottom: 20px;
   }
 }
-*/
+
+.fa {
+  margin-right: 10px;
+}
