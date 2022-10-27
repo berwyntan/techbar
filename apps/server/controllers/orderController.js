@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 const Order = require("../models/orderModel");
 const Product = require("../models/productModel");
@@ -109,3 +110,6 @@ exports.getUserOrders = async (req, res, next) => {
   }
 };
 */
+=======
+const Order = require('../models/orderModel');
+>>>>>>> berwyn6

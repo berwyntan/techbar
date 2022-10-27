@@ -15,7 +15,7 @@ const CategoryProducts = ({ user }) => {
   useEffect(() => {
     console.log(products);
     // get category products
-    var newArray = products.filter(function (el) {
+    const newArray = products.filter(function (el) {
       console.log(el);
       return el.category.category === category;
     });

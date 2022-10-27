@@ -1,28 +1,3 @@
-/* import { createContext, useState } from "react";
-
-const AppContext = createContext({});
-
-export const AppProvider = ({ children }) => {
-
-  const [categoryData, setCategoryData] = useState([]);
-
-  return (
-    <AppContext.Provider
-      value={{
-        categoryData,
-        setCategoryData,
-      }}
-    >
-      {children}
-    </AppContext.Provider>
-  );
-};
-
-export default AppContext;
-
-*/
-
-// !  NEW CODE PROPOSED
 
 import { createContext, useContext, useEffect, useState } from "react"; // getting neccery method for creating app contect
 import axios from "axios"; // importing axios to make api calls
@@ -126,11 +101,11 @@ export function UseAppContextProvider({ children }) {
   async function getData() {
     try {
       // getting products from api call
-      const { data } = await axios.get(`/api/products`);
+      const { data } = await axios.get(`/api/product`);
       console.log(data);
 
       // set products to products state
-      setProducts(data.products);
+      setProducts(data/*.products*/);
     } catch (err) {
       console.log(err);
       toast.error(err.response.data.message);
@@ -142,11 +117,11 @@ export function UseAppContextProvider({ children }) {
   async function getCategories() {
     try {
       // getting categories from api call
-      const { data } = await axios.get(`/api/categories`);
+      const { data } = await axios.get(`/api/category`);
       console.log(data);
 
       // set categories to categories state
-      setCategories(data.categories);
+      setCategories(data/*.categories*/);
     } catch (err) {
       console.log(err);
       toast.error(err.response.data.message);
@@ -160,27 +135,30 @@ export function UseAppContextProvider({ children }) {
     const uniqueIds = [];
 
     // ! geting all products from api
-    const { data } = await axios.get(`/api/products`);
+    const { data } = await axios.get(`/api/product`);
     console.log(data);
 
     // ! filering  only one product from each category
-    const unique = data.products.filter((element) => {
-      if (element.category) {
-        const isDuplicate = uniqueIds.includes(element.category._id);
-
-        if (!isDuplicate) {
-          uniqueIds.push(element.category._id);
-
-          return true;
+    if (data.length >= 0) {
+      const unique = data.products.filter((element) => {
+        if (element.category) {
+          const isDuplicate = uniqueIds.includes(element.category._id);
+  
+          if (!isDuplicate) {
+            uniqueIds.push(element.category._id);
+  
+            return true;
+          }
+  
+          return false;
         }
+      });
 
-        return false;
-      }
-    });
+      // ! set unique products to featured products state
 
-    // ! set unique products to featured products state
-
-    setFeaturedProducts(unique);
+      setFeaturedProducts(unique);
+    }
+    
   }
 
   // ! function for add product to cart
