@@ -1,3 +1,4 @@
+/*
 import { useState } from "react";
 import Categories from "./pages/Categories";
 // import Home from "./pages/Home";
@@ -6,23 +7,30 @@ import Categories from "./pages/Categories";
 import "./App.css";
 
 function App() {
-  
   return (
     <>
-    <Categories />
-    {/* <Home /> */}
+      <Categories />
+     
     </>
-    
   );
 }
 
 export default App;
+*/
+
+// ! NEW PROPOSED CODE
+import AppRouter from "./Config/Router";
+import { UseAppContextProvider } from "./context/UseAppContext"; // importing context
+import "./App.css";
 
 // wrapping the while app in context
-// <UseAppContextProvider>
-      {/* We need app router here for pages rediraction*/}
+function App() {
+  return (
+    <UseAppContextProvider>
+      {/* App router for pages rediraction*/}
+      <AppRouter />
+    </UseAppContextProvider>
+  );
+}
 
-      {/*<AppRouter />*/}
-
-      
-    // </UseAppContextProvider>
+export default App;

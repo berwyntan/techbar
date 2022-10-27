@@ -11,12 +11,18 @@ const Products = ({ user }) => {
   //rendering our ui
   return (
     <>
-      <Header />
+      <Header user={user} />
       <br />
       <h2 className="text-center">All Products</h2>
       <br />
       <Container>
-        <div className="productlist"></div>
+        <div className="productlist">
+          {/* rendering produt card for all products */}
+
+          {products.map((v, i) => {
+            return <ProductCard key={i} product={v} />;
+          })}
+        </div>
       </Container>
       <br />
       <Footer />

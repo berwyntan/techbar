@@ -1,11 +1,23 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; // to get method for redirection between pages
 
-const ProductCard = () => {
+const ProductCard = ({ product }) => {
   const { addToCart } = useAppContext(); //
   const navigate = useNavigate(); // navigate method for redirection between pages
 
-  // rendering our ui
+  //! to add product into cart
+  const add = async (id, quantity) => {
+    console.log(id);
+    await addToCart(id, quantity);
+  };
+
+  //! redirect to product page
+  const gotoproduct = (id) => {
+    // navigate to product page with product id
+    navigate(`/product/${id}`);
+  };
+
+  //! rendering our ui
   return (
     <>
       {/*product card*/}

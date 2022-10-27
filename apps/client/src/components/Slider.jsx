@@ -14,7 +14,7 @@ const Slider = () => {
         />
         <Carousel.Caption>
           <h3>Tech Bar</h3>
-          <p>The Best Tech Stuff In Your Budget</p>
+          <p>Best Tech Stuff For Your Budget</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={500}>
@@ -25,7 +25,7 @@ const Slider = () => {
         />
         <Carousel.Caption>
           <h3>Tech Bar</h3>
-          <p>The Best Tech Stuff In Your Budget</p>
+          <p>Best Tech Stuff For Your Budget</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -36,7 +36,7 @@ const Slider = () => {
         />
         <Carousel.Caption>
           <h3>Tech Bar</h3>
-          <p>The Best Tech Stuff For Your Budget</p>
+          <p>Best Tech Stuff For Your Budget</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
