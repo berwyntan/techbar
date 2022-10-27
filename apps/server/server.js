@@ -9,6 +9,7 @@ const session = require("express-session");
 // routers
 const productRouter = require("./routes/productRouter");
 const categoryRouter = require("./routes/categoryRouter");
+const userRouter = require("./routes/userRouter");
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -25,6 +26,7 @@ app.use(express.json());
 // routes
 app.use("/api/product", productRouter);
 app.use("/api/category", categoryRouter);
+app.use("/api/user", userRouter);
 
 mongoose.connection.on("connected", () => {
   console.log("Connected to mongoDB");

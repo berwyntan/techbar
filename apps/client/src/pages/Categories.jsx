@@ -45,13 +45,13 @@ import CategoryCard from '../components/CategoryCard'
 const Categories = ({ user }) => {
     const { categories, setCategories } = useAppContext() // getting categories from app state
 
-    const getAllCategory = async () => {
-    const response = await axios.get("http://localhost:3000/api/category/");
-    console.log(response);
-    setCategories(response.data);
-    };
+    // const getAllCategory = async () => {
+    // const response = await axios.get("http://localhost:3000/api/category/");
+    // console.log(response.data);
+    // setCategories(response.data);
+    // };
 
-    useEffect(() => getAllCategory, []);
+    // useEffect(() => getAllCategory, []);
 
     // rendering ui
     return (

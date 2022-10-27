@@ -38,5 +38,17 @@ const getProductById = async (req, res) => {
         res.status(500).json({ message: "Server error" });
     }
 }
+const getAllProducts = async (req, res) => {
+    
+    const result = await Product.find({}).populate('category').exec();
+    
+    try {
+        if (result) return res.status(200).json(result)
+        else return res.status(400).json({ message: "Products not found"})
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Server error" });
+    }
+}
 
-module.exports = { seedProduct, getProductsByCategory, getProductById }
+module.exports = { seedProduct, getProductsByCategory, getProductById, getAllProducts }
