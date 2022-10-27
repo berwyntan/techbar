@@ -25,6 +25,7 @@ app.use(express.json());
 // routes
 app.use("/api/product", productRouter);
 app.use("/api/category", categoryRouter);
+//app.use("/api/order", orderRouter);
 
 mongoose.connection.on("connected", () => {
   console.log("Connected to mongoDB");
