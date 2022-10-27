@@ -9,7 +9,7 @@ const categorySeed = [
     },
     {
         category: "Mobile Phones",
-        image: "https://www.usnews.com.ng/wp-content/uploads/2022/08/Samsung-Galaxy-Z-Fold-4-Beige-for-use-in-product-box_184625.jpg"
+        image: "https://m.media-amazon.com/images/I/61DsnI6STWL._AC_SL1500_.jpg"
     },
     {
         category: "Printers",

@@ -131,8 +131,8 @@ export function UseAppContextProvider({ children }) {
 
       // set products to products state
       setProducts(data.products);
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
+      console.log(err);
       toast.error(err.response.data.message);
       return err.response.data;
     }
@@ -147,8 +147,8 @@ export function UseAppContextProvider({ children }) {
 
       // set categories to categories state
       setCategories(data.categories);
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
+      console.log(err);
       toast.error(err.response.data.message);
       return err.response.data;
     }
@@ -261,7 +261,8 @@ export function UseAppContextProvider({ children }) {
         // loading false
         setLoading(false);
       } catch (err) {
-        setLoading(false);
+        console.log(err)
+        setLoading(false);        
       }
 
       await getData(); // get products

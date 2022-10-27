@@ -13,6 +13,7 @@ import MyOrders from "../pages/MyOrders";
 import OrderDetail from "../pages/OrderDetail";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
+import NotFound from "../pages/NotFound";
 
 function AppRouter() {
   const { user, loading } = useAppContext(); // getting user and loading state from app state
@@ -46,7 +47,7 @@ function AppRouter() {
           <Route exact path="/signin" element={<SignIn />} />
           <Route exact path="/signup" element={<SignUp />} />
 
-          <Route path="*" element={<NotFound loading={loading} />} />
+          <Route path="*" element={<NotFound /*loading={loading}}*/ />} />
         </Routes>
       </BrowserRouter>
     );
@@ -80,7 +81,7 @@ function AppRouter() {
             path="/orderdetails/:orderid"
             element={<OrderDetail user={user} />}
           />
-          <Route path="*" element={<NotFound loading={loading} />} />
+          <Route path="*" element={<NotFound /*loading={loading}*/ />} />
         </Routes>
       </BrowserRouter>
     );
