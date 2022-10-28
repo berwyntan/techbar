@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar"; // navbar for header from bootstrap
 import { Link } from "react-router-dom"; // getting link to redirect on link
 
 const Header = ({ user }) => {
-  //rendering our ui
+  // rendering ui
   return (
     <Navbar collapseOnSelect expand="lg" className="header">
       <Container fluid>

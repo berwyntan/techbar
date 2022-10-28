@@ -70,6 +70,18 @@
   height: 200px;
 }
 
+.condtag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  padding: 10px;
+  border: 2px solid #000;
+  background-color: #1e2639;
+  color: #fff;
+  font-weight: 700;
+}
+
 .card .card-image img {
   height: 100%;
   display: block;
@@ -100,6 +112,38 @@
 .card .card-title {
   font-size: 24px;
   font-weight: 300;
+}
+
+.btn-floating i {
+  width: inherit;
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 34px;
+}
+
+.btn-floating.halfway-fab {
+  position: absolute;
+  right: 24px;
+  bottom: -20px;
+}
+
+.waves-effect {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  z-index: 1;
+  transition: 0.3s ease-out;
+}
+.dropdown-trigger,
+.waves-effect {
+  cursor: pointer;
 }
 
 .card .card-content {
@@ -146,6 +190,33 @@ img,
   width: 100%;
 }
 
+input,
+button,
+.basket,
+.basket-module,
+.basket-labels,
+.item,
+.price,
+.quantity,
+.subtotal,
+.basket-product,
+.product-image,
+.product-details {
+  float: left;
+}
+
+.price:before,
+.subtotal:before,
+.subtotal-value:before,
+.total-value:before,
+.promo-value:before {
+  content: "$";
+}
+
+.hide {
+  display: none;
+}
+
 .basket,
 .summerytab {
   padding: 0 1rem;
@@ -165,6 +236,12 @@ img,
 label {
   display: block;
   margin-bottom: 0.3125rem;
+}
+
+.basket-labels {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-top: 1.625rem;
 }
 
 /* ! login page css */
