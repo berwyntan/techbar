@@ -1,4 +1,76 @@
-<<<<<<< HEAD
+const Order = require('../models/orderModel');
+const orderSeed = require('../seedData/orderSeed');
+
+const seedOrder = async (req, res) => {
+  await Order.deleteMany({});
+
+  const result = await Order.insertMany(orderSeed);
+
+  try {
+    if (!result) return res.status(400).json({ message: "Error in seeding orders"})
+    else return res.status(201).json(result)
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: `${error}` })
+  }
+}
+
+const handleNewOrder = async (req, res) => {
+
+  const { shippingInfo, orderItems, user } = req.body;
+
+  const { address, city, state, country, pinCode, phoneNo } = shippingInfo;
+
+  if (!address || !city || !state || !country || !pinCode || !phoneNo) {
+    return res.status(400).json({ message: "Shipping info form incomplete"})
+  }
+
+  const { name, quantity, price, image, product } = orderItems;
+  if (!name || !quantity || !price || !image || !product) {
+    return res.status(400).json({ message: "Product info incomplete"})
+  }
+
+  if (!user) return res.status(400).json({ message: "User info not found"})
+
+  const result = await Order.create({
+    shippingInfo,
+    orderItems,
+    user
+  })
+
+  try {
+    if (result) return res.status(201).json(result)
+    if (!result) return res.status(400).json({ message: "Error: order not created"})
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: `${error}`})   
+  }
+}
+
+const getOrdersByUser = async (req, res) => {
+  const { user } = req.params;
+
+  const result = await Order.find({user: user}) //.populate().exec();
+
+  try {
+    if (!result) return res.status(204).json({ message: "Error, user not found" })
+    if (result) {
+      // const orderItems = result.map(order => {
+      //   return order.orderItems
+      // })
+      // console.log(orderItems)
+      return res.status(200).json(result)
+    }
+    
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: `${error}` })
+  }
+}
+
+module.exports = { seedOrder, handleNewOrder, getOrdersByUser }
+
+
 /*
 const Order = require("../models/orderModel");
 const Product = require("../models/productModel");
@@ -110,6 +182,3 @@ exports.getUserOrders = async (req, res, next) => {
   }
 };
 */
-=======
-const Order = require('../models/orderModel');
->>>>>>> berwyn6

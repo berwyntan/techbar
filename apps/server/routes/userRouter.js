@@ -4,10 +4,12 @@ const userController = require('../controllers/userController');
 
 router.get('/seed', userController.seedUser);
 
-// router.get('/category/:category', userController.getProductsByCategory);
+router.post('/signup', userController.handleSignup);
 
-// router.get('/:id', userController.getProductById);
+router.post('/login', userController.handleLogin);
 
-// router.get('/', userController.getAllProducts)
+router.get('/logout', userController.handleLogout);
+
+router.get('/refresh', userController.handleRefresh);
 
 module.exports = router

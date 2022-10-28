@@ -2,12 +2,12 @@ const userSeed = [
     {
         name: "James Lim",
         email: "jameslim@gmail.com",
-        password: "1234567"
+        password: "123456"
     },
     {
         name: "Gerald Tan",
         email: "geraldtan@gmail.com",
-        password: "3456789"
+        password: "654321"
     },
 ]
 

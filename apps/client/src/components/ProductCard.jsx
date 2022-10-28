@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; // to get method for redirection between pages
+import { useAppContext } from "../context/UseAppContext";
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useAppContext(); //
@@ -24,7 +25,7 @@ const ProductCard = ({ product }) => {
       <div className="card">
         <div className="card-image">
           {/*product image*/}
-          <img />
+          <img src={product.images[0]}/>
         </div>
         {/*product name*/}
         <span
@@ -35,7 +36,7 @@ const ProductCard = ({ product }) => {
             textDecoration: "underline",
             cursor: "pointer",
           }}
-        ></span>
+        >{product.name}</span>
 
         {/*add to card button */}
         <span></span>

@@ -5,7 +5,7 @@ const seedCategory = async (req, res) => {
     await Category.deleteMany({});
     const result = await Category.insertMany(categorySeed);
     try {
-        if (result) return res.status(201).json(result)
+        if (result) return res.status(201).json(result)        
         else return res.status(400).json({ message: "Seed category error"})
     } catch (error) {
         console.log(error);
@@ -15,6 +15,7 @@ const seedCategory = async (req, res) => {
 
 const getAllCategory = async (req, res) => {
     const result = await Category.find({});
+    console.log(result[0]._id)
     try {
         if (result) return res.status(200).json(result)
         else return res.status(400).json({ message: "Get all category error"})

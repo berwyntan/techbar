@@ -21,7 +21,7 @@ export function UseAppContextProvider({ children }) {
 
     try {
       // ! make api call to backend
-      const { data } = await axios.post("/api/login", {
+      const { data } = await axios.post("/api/user/login", {
         email,
         password,
       });
@@ -49,7 +49,7 @@ export function UseAppContextProvider({ children }) {
     setLoading(true);
     try {
       // make api call
-      const { data } = await axios.post("/api/register", {
+      const { data } = await axios.post("/api/user/signup", {
         name,
         email,
         password,
@@ -77,7 +77,7 @@ export function UseAppContextProvider({ children }) {
     setLoading(true);
     try {
       // make api call
-      const { data } = await axios.get("/api/logout");
+      const { data } = await axios.get("/api/user/logout");
 
       // set user state to empty
       setUser({});
@@ -106,6 +106,7 @@ export function UseAppContextProvider({ children }) {
 
       // set products to products state
       setProducts(data/*.products*/);
+      // console.log(products)
     } catch (err) {
       console.log(err);
       toast.error(err.response.data.message);
@@ -231,7 +232,7 @@ export function UseAppContextProvider({ children }) {
       try {
         // verify token , check f user is logged in
 
-        const { data } = await axios.get("/api/me");
+        const { data } = await axios.get("/api/user/refresh");
 
         // set user to state
         setUser(data.user);

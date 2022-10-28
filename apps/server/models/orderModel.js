@@ -60,11 +60,7 @@ const orderSchema = new mongoose.Schema({
     required: true,
   },
 
-  // productPrice: {
-  //   type: Number,
-  //   required: true,
-  // },
-});
+}, { timestamps: true });
 
 const Order = new mongoose.model("Order", orderSchema);
 
