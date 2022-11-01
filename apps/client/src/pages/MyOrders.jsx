@@ -16,10 +16,10 @@ const MyOrders = ({ user }) => {
   const getData = async () => {
     try {
       //! get orders from backend api
-      const { data } = await axios.get(`/api/orders/me`);
+      const { data } = await axios.get(`/api/order/${user._id}`);
       console.log(data);
       //set orders in orders state
-      setOrders(data.orders);
+      setOrders(data.order);
     } catch (e) {
       console.log(e);
       toast.error("Error! Please Try Again Later");
@@ -75,10 +75,18 @@ const MyOrders = ({ user }) => {
           </thead>
           <tbody>
             {orders.map((v, i) => {
+
+              const totalPriceArray = v.orderItems.map(item => {
+                return parseInt(item.quantity) * parseInt(item.price)
+              })              
+
+              const totalPrice = totalPriceArray.reduce((prev, curr) => prev + curr, 0)
+              
               return (
                 <tr key={i}>
                   <td>{v._id}</td>
-                  <td>${v.totalPrice}</td>
+                  {/* <td>${v.totalPrice}</td> */}
+                  <td>${totalPrice}</td>
                   <td>{v.orderItems.length}</td>
                   <td>
                     <button

@@ -58,7 +58,16 @@ const handleSignup = async (req, res) => {
                 }
     
             const result = await User.create(newUser);
-            if (result) return res.status(201).json({ message: `New account ${email} created`})
+            console.log(result)
+            if (result) return res.status(201).json({ 
+                message: `New account ${email} created`,
+                user: {
+                    name: name,
+                    email: email,
+                    _id: result._id
+                },
+                success: true,
+            })
             if (!result) return res.status(401).json({ message: "Error: account not created"})
             })
         } 
@@ -94,7 +103,8 @@ const handleLogin = async (req, res) => {
                 message: `${foundUser.email} successfully logged in`,
                 user: {
                     name: foundUser.name,
-                    email: foundUser.email
+                    email: foundUser.email,
+                    _id: foundUser._id
                 },
                 success: true
             })
@@ -137,7 +147,7 @@ const handleRefresh = async (req, res) => {
                 name: foundUser.name,
                 email: foundUser.email
             }
-            return res.status(200).json(userInfo)
+            return res.status(200).json({user: userInfo})
         };
         if (!foundUser) return res.status(401).json({ message: "User not previously logged in" })
     } catch (error) {

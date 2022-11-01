@@ -16,10 +16,11 @@ const OrderDetail = ({ user }) => {
   //! get order by api
   const getData = async (id) => {
     try {
-      const { data } = await axios.get(`/api/order/${id}`);
+      const { data } = await axios.get(`/api/order/id/${id}`);
       if (data.success === true) {
         // set order in state
         setOrder(data.order);
+        console.log(data.order)
         setLoading(false);
       } else {
         navigate("/myorders");

@@ -29,7 +29,7 @@ export function UseAppContextProvider({ children }) {
 
       // set user to user state
       setUser(data.user);
-
+      toast.success(`Welcome back ${data.user.name}!`)
       // loading false
       setLoading(false);
 
@@ -59,6 +59,9 @@ export function UseAppContextProvider({ children }) {
       // set user to user state
       setUser(data.user);
       setLoading(false);
+
+      toast.success(data.message)
+      
 
       return data;
     } catch (err) {
@@ -105,7 +108,7 @@ export function UseAppContextProvider({ children }) {
       console.log(data);
 
       // set products to products state
-      setProducts(data/*.products*/);
+      setProducts(data.products);
       // console.log(products)
     } catch (err) {
       console.log(err);
@@ -122,7 +125,7 @@ export function UseAppContextProvider({ children }) {
       console.log(data);
 
       // set categories to categories state
-      setCategories(data/*.categories*/);
+      setCategories(data.categories);
     } catch (err) {
       console.log(err);
       toast.error(err.response.data.message);
@@ -233,12 +236,13 @@ export function UseAppContextProvider({ children }) {
         // verify token , check f user is logged in
 
         const { data } = await axios.get("/api/user/refresh");
-
+        // console.log(data)
         // set user to state
         setUser(data.user);
-
+        
         // loading false
         setLoading(false);
+
       } catch (err) {
         console.log(err)
         setLoading(false);        

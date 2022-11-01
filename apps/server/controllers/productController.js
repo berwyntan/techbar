@@ -43,7 +43,7 @@ const getAllProducts = async (req, res) => {
     const result = await Product.find({}).populate('category').exec();
     
     try {
-        if (result) return res.status(200).json(result)
+        if (result) return res.status(200).json({products: result})
         else return res.status(400).json({ message: "Products not found"})
     } catch (error) {
         console.log(error);

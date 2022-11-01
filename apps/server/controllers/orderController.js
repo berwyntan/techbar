@@ -59,7 +59,7 @@ const getOrdersByUser = async (req, res) => {
       //   return order.orderItems
       // })
       // console.log(orderItems)
-      return res.status(200).json(result)
+      return res.status(200).json({order: result})
     }
     
   } catch (error) {
@@ -68,7 +68,29 @@ const getOrdersByUser = async (req, res) => {
   }
 }
 
-module.exports = { seedOrder, handleNewOrder, getOrdersByUser }
+const getOrderById = async (req, res) => {
+  const { id } = req.params;
+
+  const result = await Order.findOne({_id: id})
+
+  try {
+    if (!result) return res.status(204).json({ message: "Error, order not found" })
+    if (result) {
+      
+      console.log(result)
+      return res.status(200).json({
+        order: result,
+        success: true
+      })
+    }
+    
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: `${error}` })
+  }
+}
+
+module.exports = { seedOrder, handleNewOrder, getOrdersByUser, getOrderById }
 
 
 /*

@@ -18,7 +18,7 @@ const SignUp = () => {
 
     // if request is successful -> navigate to home page
     if (result.success === true) {
-      navigate("/"); //to home page
+      navigate("/signin"); //to home page
     }
   };
 
