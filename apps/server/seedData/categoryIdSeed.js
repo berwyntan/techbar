@@ -1,7 +1,7 @@
-const laptops = "635b82adb133ee23042c5458";
-const computers = "635b82adb133ee23042c5459";
-const mobilePhones = "635b82adb133ee23042c545a";
-const printers = "635b82adb133ee23042c545b";
-const cameras = "635b82adb133ee23042c545c";
+const laptops = "6360ff723f6adb6001af3344";
+const computers = "6360ff723f6adb6001af3345";
+const mobilePhones = "6360ff723f6adb6001af3346";
+const printers = "6360ff723f6adb6001af3347";
+const cameras = "6360ff723f6adb6001af3348";
 
 module.exports = { laptops, computers, mobilePhones, printers, cameras }
