@@ -24,22 +24,24 @@ const ProductCard = ({ product }) => {
       {/* product card */}
       <div className="card">
         <div className="card-image">
-          {/* product image */}
-          <img src={product.images[0].url} alt={product.name} />
-          <div>
-            {/* product name */}
-            <span
-              onClick={() => gotoproduct(product._id)}
-              className="card-title producthead"
-              style={{
-                position: "absolute",
-                top: 200,
-                textDecoration: "underline",
-                cursor: "pointer",
-              }}
-            >
-              {product.name}
-            </span>
+          {/*product image*/}
+          <img src={product.images[0]}/>
+        </div>
+        {/*product name*/}
+        <span
+          className="card-title producthead"
+          style={{
+            position: "absolute",
+            top: 200,
+            textDecoration: "underline",
+            cursor: "pointer",
+          }}
+          onClick={() => gotoproduct(product._id)}
+        >{product.name}</span>
+
+        {/*add to card button */}
+        <span></span>
+      </div>
 
             {/* add to cart button */}
             <span

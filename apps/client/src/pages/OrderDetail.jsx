@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import { Container, Table } from "react-bootstrap";
-import { useParams, useNavigate } from "react-router-dom"; // useParam to get Order ID from url and useNaviagate to redirect between pages
+import { useParams, useNavigate, Link } from "react-router-dom"; // useParam to get Order ID from url and useNaviagate to redirect between pages
 import axios from "axios"; // axios for api calls
 
 const OrderDetail = ({ user }) => {
@@ -16,10 +16,11 @@ const OrderDetail = ({ user }) => {
   //! get order by api
   const getData = async (id) => {
     try {
-      const { data } = await axios.get(`/api/order/${id}`);
+      const { data } = await axios.get(`/api/order/id/${id}`);
       if (data.success === true) {
         // set order in state
         setOrder(data.order);
+        // console.log(data.order)
         setLoading(false);
       } else {
         navigate("/myorders");
@@ -65,7 +66,7 @@ const OrderDetail = ({ user }) => {
               {order.orderItems.map((v, i) => {
                 return (
                   <tr key={i}>
-                    <td>{v.name}</td>
+                    <td><Link to={`/product/${v.product}`}>{v.name}</Link></td>
                     <td>${v.price}</td>
                     <td>{v.quantity}</td>
                   </tr>

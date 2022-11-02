@@ -47,7 +47,8 @@ function AppRouter() {
           <Route exact path="/signin" element={<SignIn />} />
           <Route exact path="/signup" element={<SignUp />} />
 
-          <Route path="*" element={<NotFound /*loading={loading}}*/ />} />
+    
+          <Route path="*" element={<NotFound loading={loading} />} />
         </Routes>
       </BrowserRouter>
     );

@@ -2,6 +2,10 @@ import React, { useState } from "react"; // react with state to hold email passw
 import { Link } from "react-router-dom"; // link to redirect to other page
 import { useAppContext } from "../context/UseAppContext"; // getting app context to use login function
 import { useNavigate } from "react-router-dom"; // for navigate mothod
+import isEmail from 'validator/lib/isEmail';
+import isLength from 'validator/lib/isLength';
+import isAlphanumeric from 'validator/lib/isAlphanumeric';
+import { toast } from "react-toastify";
 
 const SignIn = () => {
   const { logIn } = useAppContext(); // get login method from app context
@@ -11,6 +15,19 @@ const SignIn = () => {
   const [password, setPassword] = useState(""); // state for user's password
 
   const loginnow = async () => {
+    // validation
+    if (!isEmail(email)) {
+      toast.error("Email address is not valid")
+      return
+    } else if (!isLength(password, {min:6})) {
+      toast.error("Password should have 6 or more alphanumeric characters")
+      return
+    } else if (!isAlphanumeric(password)) {
+      toast.error("Password should contain only letters and numbers")
+      return
+    }
+
+
     // calling login function
     const result = await logIn(email, password);
     console.log(result);

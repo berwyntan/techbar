@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Container } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAppContext } from "../context/UseAppContext";
 
 const Cart = ({ user }) => {
@@ -161,9 +161,12 @@ const Cart = ({ user }) => {
                             <div className="total-value final-value" id="basket-total">130.00</div>
                         </div> */}
             <div className="summary-checkout">
-              <button className="checkout-cta" onClick={gotocheckout}>
+              {user && <button className="checkout-cta" onClick={gotocheckout}>
                 Go to Checkout
-              </button>
+              </button>}
+              {!user && <button className="checkout-cta" onClick={() => navigate('/signin')}>
+                Log In to Checkout
+              </button>}
             </div>
           </div>
         </div>
