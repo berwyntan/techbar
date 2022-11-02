@@ -8,10 +8,10 @@ import { useAppContext } from "../context/UseAppContext";
 const Cart = ({ user }) => {
   const navigate = useNavigate(); // navigate for redirecting from other state
 
-  const { cartItems, setquantitytocartitem, removeFromCart } = useAppContext(); // function to magae carts
+  const { cartItems, setquantitytocartitem, removeFromCart } = useAppContext(); // function to manage cart
   const [total, setTotal] = useState(0);
 
-  //! increate quantity in cart
+  //! increase quantity in cart
   const addquantity = async (productid, price) => {
     let quantity = parseInt(document.getElementById("quantity").value) + 1;
     await setquantitytocartitem(productid, quantity);
