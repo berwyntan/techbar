@@ -31,7 +31,7 @@ const Header = ({ user }) => {
                 <i className="fa fa-shopping-cart" style={{ fontSize: 22 }}></i>
               </Nav.Link>
               <Nav.Link as={Link} to="/myorders">
-                <i className="fa fa-user" style={{ fontSize: 22 }}></i>
+                <i className="fa fa-user" style={{ fontSize: 22 }}></i><span>{user.name}</span>
               </Nav.Link>
             </>
           ) : (

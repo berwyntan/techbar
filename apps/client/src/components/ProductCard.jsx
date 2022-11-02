@@ -36,6 +36,7 @@ const ProductCard = ({ product }) => {
             textDecoration: "underline",
             cursor: "pointer",
           }}
+          onClick={() => gotoproduct(product._id)}
         >{product.name}</span>
 
         {/*add to card button */}

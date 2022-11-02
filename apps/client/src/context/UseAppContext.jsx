@@ -57,7 +57,7 @@ export function UseAppContextProvider({ children }) {
       console.log(data);
 
       // set user to user state
-      setUser(data.user);
+      // setUser(data.user); //berwyn: I think should redirect to login page after signing up
       setLoading(false);
 
       toast.success(data.message)
@@ -105,7 +105,7 @@ export function UseAppContextProvider({ children }) {
     try {
       // getting products from api call
       const { data } = await axios.get(`/api/product`);
-      console.log(data);
+      // console.log(data);
 
       // set products to products state
       setProducts(data.products);
@@ -122,7 +122,7 @@ export function UseAppContextProvider({ children }) {
     try {
       // getting categories from api call
       const { data } = await axios.get(`/api/category`);
-      console.log(data);
+      // console.log(data);
 
       // set categories to categories state
       setCategories(data.categories);
@@ -140,7 +140,7 @@ export function UseAppContextProvider({ children }) {
 
     // ! geting all products from api
     const { data } = await axios.get(`/api/product`);
-    console.log(data);
+    // console.log(data);
 
     // ! filering  only one product from each category
     if (data.length >= 0) {

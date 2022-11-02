@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Container } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAppContext } from "../context/UseAppContext";
 
 const Cart = ({ user }) => {
@@ -67,6 +67,7 @@ const Cart = ({ user }) => {
       <Header user={user} />
       <br />
       <h2 className="text-center">Your Cart</h2>
+      {!user && <h5 className="text-center"><Link to="/signin">Log In</Link> to View Your Cart</h5>}
       <br />
       <Container>
         <div className="basket">

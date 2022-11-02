@@ -22,8 +22,8 @@ const Product = ({ user }) => {
   const getData = async (id) => {
     try {
       //! GET PRODUCT FROM BACKEND API CALL
-      const { data } = await axios.get(`/api/getproduct/${id}`);
-      console.log(data);
+      const { data } = await axios.get(`/api/product/${id}`);
+      // console.log(data);
 
       if (data.status === true) {
         // set product into state
@@ -33,8 +33,8 @@ const Product = ({ user }) => {
         //! add images in product images
         data.products.images.forEach((ele) => {
           let obj = {
-            original: ele.url,
-            thumbnail: ele.url,
+            original: ele/*.url*/,
+            thumbnail: ele/*.url*/,
           };
 
           arr.push(obj);

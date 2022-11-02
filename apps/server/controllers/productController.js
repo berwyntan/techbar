@@ -31,7 +31,7 @@ const getProductById = async (req, res) => {
     const result = await Product.findOne({ _id: id }).populate('category').exec();
     
     try {
-        if (result) return res.status(200).json(result)
+        if (result) return res.status(200).json({products: result, status: true})
         else return res.status(400).json({ message: "Category not found"})
     } catch (error) {
         console.log(error);
