@@ -1,4 +1,3 @@
-
 import { createContext, useContext, useEffect, useState } from "react"; // getting neccery method for creating app contect
 import axios from "axios"; // importing axios to make api calls
 import { toast } from "react-toastify"; // import toast to show success or error messages
@@ -6,11 +5,11 @@ import { toast } from "react-toastify"; // import toast to show success or error
 const AppContext = createContext(); // creating context
 
 export function UseAppContextProvider({ children }) {
-  const [user, setUser] = useState({}); // setting user state empty by defaule
-  const [products, setProducts] = useState([]); // setting products stateempty by defaulr
-  const [categories, setCategories] = useState([]); // setting categories state empty by defaule
-  const [featuredproducts, setFeaturedProducts] = useState([]); // setting featured products state empty by defaulr
-  const [cartItems, setCartItems] = useState([]); // setting cart item state empty by defaulr
+  const [user, setUser] = useState({}); // setting user state empty by default
+  const [products, setProducts] = useState([]); // setting products state empty by default
+  const [categories, setCategories] = useState([]); // setting categories state empty by default
+  const [featuredproducts, setFeaturedProducts] = useState([]); // setting featured products state empty by default
+  const [cartItems, setCartItems] = useState([]); // setting cart item state empty by default
   const [loading, setLoading] = useState(true); // setting loading state true by default
   const [status, setStatus] = useState("start"); // set state for app start by default
 
@@ -48,7 +47,7 @@ export function UseAppContextProvider({ children }) {
     // loading true
     setLoading(true);
     try {
-      // make api call
+      // makeing  api call
       const { data } = await axios.post("/api/user/signup", {
         name,
         email,
@@ -105,7 +104,7 @@ export function UseAppContextProvider({ children }) {
       console.log(data);
 
       // set products to products state
-      setProducts(data/*.products*/);
+      setProducts(data /*.products*/);
       // console.log(products)
     } catch (err) {
       console.log(err);
@@ -122,7 +121,7 @@ export function UseAppContextProvider({ children }) {
       console.log(data);
 
       // set categories to categories state
-      setCategories(data/*.categories*/);
+      setCategories(data /*.categories*/);
     } catch (err) {
       console.log(err);
       toast.error(err.response.data.message);
@@ -144,13 +143,13 @@ export function UseAppContextProvider({ children }) {
       const unique = data.products.filter((element) => {
         if (element.category) {
           const isDuplicate = uniqueIds.includes(element.category._id);
-  
+
           if (!isDuplicate) {
             uniqueIds.push(element.category._id);
-  
+
             return true;
           }
-  
+
           return false;
         }
       });
@@ -159,7 +158,6 @@ export function UseAppContextProvider({ children }) {
 
       setFeaturedProducts(unique);
     }
-    
   }
 
   // ! function for add product to cart
@@ -240,8 +238,8 @@ export function UseAppContextProvider({ children }) {
         // loading false
         setLoading(false);
       } catch (err) {
-        console.log(err)
-        setLoading(false);        
+        console.log(err);
+        setLoading(false);
       }
 
       await getData(); // get products
