@@ -67,7 +67,6 @@ const Cart = ({ user }) => {
       <Header user={user} />
       <br />
       <h2 className="text-center">Your Cart</h2>
-      {!user && <h5 className="text-center"><Link to="/signin">Log In</Link> to View Your Cart</h5>}
       <br />
       <Container>
         <div className="basket">
@@ -162,9 +161,12 @@ const Cart = ({ user }) => {
                             <div className="total-value final-value" id="basket-total">130.00</div>
                         </div> */}
             <div className="summary-checkout">
-              <button className="checkout-cta" onClick={gotocheckout}>
+              {user && <button className="checkout-cta" onClick={gotocheckout}>
                 Go to Checkout
-              </button>
+              </button>}
+              {!user && <button className="checkout-cta" onClick={() => navigate('/signin')}>
+                Log In to Checkout
+              </button>}
             </div>
           </div>
         </div>
