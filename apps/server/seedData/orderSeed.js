@@ -1,3 +1,5 @@
+const { product1, product2, product3 } = require('./productIdSeed');
+
 const orderSeed = [
     {
         shippingInfo: {
@@ -14,24 +16,160 @@ const orderSeed = [
                 quantity: "2",
                 price: "1299",
                 image: "https://m.media-amazon.com/images/I/71y6KC-jJNL._AC_SL1500_.jpg",
-                product: "63610001cc5b908e3b5efc39"
+                product: product1
             },
             {
                 name: "SAMSUNG LC34H890WGEXXS 34-inch Curved Monitor",
                 quantity: "3",
                 price: "845",
                 image: "https://m.media-amazon.com/images/I/51JvCYEq6IL._AC_SL1000_.jpg",
-                product: "63610001cc5b908e3b5efc41"
+                product: product2
             },
             {
                 name: "HP LaserJet Monochrome Laser Printer",
                 quantity: "1",
                 price: "108",
                 image: "https://m.media-amazon.com/images/I/41BPAfTYu1L._AC_.jpg",
-                product: "63610001cc5b908e3b5efc48"
+                product: product3
             },
         ],
-        user: "6360ff683f6adb6001af3340"
+        user: "63639433a84346ed0fdeb9d5"
+    },
+    {
+        shippingInfo: {
+            address: "3 Green Ave #05-03",
+            city: "Denver",
+            state: "Wyoming",
+            country: "USA",
+            pinCode: "47589",
+            phoneNo: "8739578085"
+        },
+        orderItems: [
+            {
+                name: "Apple MacBook Air 13-inch",
+                quantity: "2",
+                price: "1299",
+                image: "https://m.media-amazon.com/images/I/71y6KC-jJNL._AC_SL1500_.jpg",
+                product: product1
+            },
+            {
+                name: "SAMSUNG LC34H890WGEXXS 34-inch Curved Monitor",
+                quantity: "3",
+                price: "845",
+                image: "https://m.media-amazon.com/images/I/51JvCYEq6IL._AC_SL1000_.jpg",
+                product: product2
+            },
+            {
+                name: "HP LaserJet Monochrome Laser Printer",
+                quantity: "1",
+                price: "108",
+                image: "https://m.media-amazon.com/images/I/41BPAfTYu1L._AC_.jpg",
+                product: product3
+            },
+        ],
+        user: "63639433a84346ed0fdeb9d5"
+    },
+    {
+        shippingInfo: {
+            address: "3 Green Ave #05-03",
+            city: "Denver",
+            state: "Wyoming",
+            country: "USA",
+            pinCode: "47589",
+            phoneNo: "8739578085"
+        },
+        orderItems: [
+            {
+                name: "Apple MacBook Air 13-inch",
+                quantity: "2",
+                price: "1299",
+                image: "https://m.media-amazon.com/images/I/71y6KC-jJNL._AC_SL1500_.jpg",
+                product: product1
+            },
+            {
+                name: "SAMSUNG LC34H890WGEXXS 34-inch Curved Monitor",
+                quantity: "3",
+                price: "845",
+                image: "https://m.media-amazon.com/images/I/51JvCYEq6IL._AC_SL1000_.jpg",
+                product: product2
+            },
+            {
+                name: "HP LaserJet Monochrome Laser Printer",
+                quantity: "1",
+                price: "108",
+                image: "https://m.media-amazon.com/images/I/41BPAfTYu1L._AC_.jpg",
+                product: product3
+            },
+        ],
+        user: "63639433a84346ed0fdeb9d5"
+    },
+    {
+        shippingInfo: {
+            address: "3 Green Ave #05-03",
+            city: "Denver",
+            state: "Wyoming",
+            country: "USA",
+            pinCode: "47589",
+            phoneNo: "8739578085"
+        },
+        orderItems: [
+            {
+                name: "Apple MacBook Air 13-inch",
+                quantity: "2",
+                price: "1299",
+                image: "https://m.media-amazon.com/images/I/71y6KC-jJNL._AC_SL1500_.jpg",
+                product: product1
+            },
+            {
+                name: "SAMSUNG LC34H890WGEXXS 34-inch Curved Monitor",
+                quantity: "3",
+                price: "845",
+                image: "https://m.media-amazon.com/images/I/51JvCYEq6IL._AC_SL1000_.jpg",
+                product: product2
+            },
+            {
+                name: "HP LaserJet Monochrome Laser Printer",
+                quantity: "1",
+                price: "108",
+                image: "https://m.media-amazon.com/images/I/41BPAfTYu1L._AC_.jpg",
+                product: product3
+            },
+        ],
+        user: "63639433a84346ed0fdeb9d5"
+    },
+    {
+        shippingInfo: {
+            address: "3 Green Ave #05-03",
+            city: "Denver",
+            state: "Wyoming",
+            country: "USA",
+            pinCode: "47589",
+            phoneNo: "8739578085"
+        },
+        orderItems: [
+            {
+                name: "Apple MacBook Air 13-inch",
+                quantity: "2",
+                price: "1299",
+                image: "https://m.media-amazon.com/images/I/71y6KC-jJNL._AC_SL1500_.jpg",
+                product: product1
+            },
+            {
+                name: "SAMSUNG LC34H890WGEXXS 34-inch Curved Monitor",
+                quantity: "3",
+                price: "845",
+                image: "https://m.media-amazon.com/images/I/51JvCYEq6IL._AC_SL1000_.jpg",
+                product: product2
+            },
+            {
+                name: "HP LaserJet Monochrome Laser Printer",
+                quantity: "1",
+                price: "108",
+                image: "https://m.media-amazon.com/images/I/41BPAfTYu1L._AC_.jpg",
+                product: product3
+            },
+        ],
+        user: "63639433a84346ed0fdeb9d5"
     },
     {
         shippingInfo: {
@@ -44,21 +182,28 @@ const orderSeed = [
         },
         orderItems: [
             {
-                name: "Canon EOS Rebel T7 DSLR Camera with 18-55mm Lens , Black",
-                quantity: "1",
-                price: "879",
-                image: "https://m.media-amazon.com/images/I/61k1h857c4L._AC_SL1500_.jpg",
-                product: "63610001cc5b908e3b5efc4c"
+                name: "Apple MacBook Air 13-inch",
+                quantity: "2",
+                price: "1299",
+                image: "https://m.media-amazon.com/images/I/71y6KC-jJNL._AC_SL1500_.jpg",
+                product: product1
             },
             {
-                name: "Apple MacBook Pro 16-inch",
+                name: "SAMSUNG LC34H890WGEXXS 34-inch Curved Monitor",
+                quantity: "3",
+                price: "845",
+                image: "https://m.media-amazon.com/images/I/51JvCYEq6IL._AC_SL1000_.jpg",
+                product: product2
+            },
+            {
+                name: "HP LaserJet Monochrome Laser Printer",
                 quantity: "1",
-                price: "4699",
-                image: "https://m.media-amazon.com/images/I/61k1h857c4L._AC_SL1500_.jpg",
-                product: "63610001cc5b908e3b5efc38"
-            }
+                price: "108",
+                image: "https://m.media-amazon.com/images/I/41BPAfTYu1L._AC_.jpg",
+                product: product3
+            },
         ],
-        user: "6360ff683f6adb6001af3341"
+        user: "63639433a84346ed0fdeb9d6"
     },
 ]
 

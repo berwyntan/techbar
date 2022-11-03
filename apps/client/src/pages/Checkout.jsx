@@ -312,7 +312,7 @@ function Checkout({ user }) {
               <br />
               {cartItems.map((v, i) => {
                 return (
-                  <p>
+                  <p key={i}>
                     <Link to={"/product/" + v._id}>{v.name}</Link>{" "}
                     <span className="checkoutspan">
                       ${v.price * v.quantity}

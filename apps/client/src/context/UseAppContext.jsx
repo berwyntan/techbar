@@ -121,7 +121,7 @@ export function UseAppContextProvider({ children }) {
     try {
       // getting categories from api call
       const { data } = await axios.get(`/api/category`);
-      // console.log(data);
+      console.log(data);
 
       // set categories to categories state
       setCategories(data.categories);
