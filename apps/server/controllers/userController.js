@@ -81,7 +81,7 @@ const handleSignup = async (req, res) => {
 const handleLogin = async (req, res) => {
 
     const { email, password } = req.body;
-    console.log(email, password)
+    // console.log(email, password)
 
     if ( !email || !password ) 
         return res.status(400).json({ message: "Error: Please fill up all fields"});
@@ -140,6 +140,35 @@ const handleRefresh = async (req, res) => {
     const { _id } = req.session;
     const foundUser = await User.findOne({_id: _id});
     
+    try {
+        if (foundUser) {
+            const userInfo = {
+                _id: _id,
+                name: foundUser.name,
+                email: foundUser.email
+            }
+            return res.status(200).json({user: userInfo})
+        };
+        if (!foundUser) return res.status(401).json({ message: "User not previously logged in" })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: `${error}` })
+    }
+}
+
+const handleUpdateUsername = async (req, res) => {
+    const { _id } = req.session;
+    const foundUser = await User.findOne({_id: _id});
+    if (!foundUser) return res.status(401).json({ message: "Error, user is not logged in"});
+
+    const { name } = req.body;
+    if (!name) return res.status(400).json({ message: "Error, user name not provided"});
+    
+    if (name.length < 4) return res.status(400).json({ message: "Error: Name should have more than 4 characters"});
+
+    if (name.length > 30) return res.status(400).json({ message: "Error: Name Cannot Exceed 30 Characters"});
+
+        
     try {
         if (foundUser) {
             const userInfo = {

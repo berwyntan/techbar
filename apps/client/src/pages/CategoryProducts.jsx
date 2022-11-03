@@ -13,10 +13,10 @@ const CategoryProducts = ({ user }) => {
   const { products } = useAppContext(); // get products from state
 
   useEffect(() => {
-    console.log(products);
+    // console.log(products);
     // get category products
     const newArray = products.filter(function (el) {
-      console.log(el);
+      // console.log(el);
       return el.category.category === category;
     });
 
