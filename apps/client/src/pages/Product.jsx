@@ -97,7 +97,7 @@ const Product = ({ user }) => {
           </section>
 
           <section className="productprice">
-            <h2 className="price-sub__heading">{product.category.category}</h2>
+            <h2 className="price-sub__heading">{product.category}</h2>
             <h1 className="price-main__heading">{product.name}</h1>
             <p
               className="price-txt"

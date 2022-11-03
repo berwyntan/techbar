@@ -17,7 +17,7 @@ const MyOrders = ({ user }) => {
     try {
       //! get orders from backend api
       const { data } = await axios.get(`/api/order/${user._id}`);
-      // console.log(data);
+      console.log(data);
       //set orders in orders state
       setOrders(data.order);
     } catch (e) {
