@@ -60,8 +60,59 @@ const MyOrders = ({ user }) => {
           Logout
         </button>
       </div>
+      {/* MY PROFILE UPDATE FORM - START */}
       <br />
+      <h2 className="text-center">My Profile</h2>
+
       <br />
+
+      <form className="update-form">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <input type="text" placeholder="Update Name" />
+        </div>
+        <br />
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <input type="text" placeholder="Update Email Address" />
+        </div>
+        <br />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <input type="password" placeholder="Update Password" />
+        </div>
+
+        <br />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {" "}
+          <button className="btn btn-sm btn-danger">Update</button>
+        </div>
+        <br />
+      </form>
+      {/* MY PROFILE UPDATE FORM  - END */}
+
       <Container>
         <br />
         <Table bordered responsive striped>
@@ -75,13 +126,15 @@ const MyOrders = ({ user }) => {
           </thead>
           <tbody>
             {orders.map((v, i) => {
+              const totalPriceArray = v.orderItems.map((item) => {
+                return parseInt(item.quantity) * parseInt(item.price);
+              });
 
-              const totalPriceArray = v.orderItems.map(item => {
-                return parseInt(item.quantity) * parseInt(item.price)
-              })              
+              const totalPrice = totalPriceArray.reduce(
+                (prev, curr) => prev + curr,
+                0
+              );
 
-              const totalPrice = totalPriceArray.reduce((prev, curr) => prev + curr, 0)
-              
               return (
                 <tr key={i}>
                   <td>{v._id}</td>

@@ -84,7 +84,7 @@ const Cart = ({ user }) => {
                 <div className="item">
                   <div className="product-image">
                     <img
-                      src={v.images[0].url}
+                      src={v.images[0]}
                       alt="Placholder Image 2"
                       className="product-frame"
                     />
@@ -161,12 +161,19 @@ const Cart = ({ user }) => {
                             <div className="total-value final-value" id="basket-total">130.00</div>
                         </div> */}
             <div className="summary-checkout">
-              {user && <button className="checkout-cta" onClick={gotocheckout}>
-                Go to Checkout
-              </button>}
-              {!user && <button className="checkout-cta" onClick={() => navigate('/signin')}>
-                Log In to Checkout
-              </button>}
+              {user && (
+                <button className="checkout-cta" onClick={gotocheckout}>
+                  Go to Checkout
+                </button>
+              )}
+              {!user && (
+                <button
+                  className="checkout-cta"
+                  onClick={() => navigate("/signin")}
+                >
+                  Log In to Checkout
+                </button>
+              )}
             </div>
           </div>
         </div>
