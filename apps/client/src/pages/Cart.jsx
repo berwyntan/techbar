@@ -13,20 +13,24 @@ const Cart = ({ user }) => {
 
   //! increase quantity in cart
   const addquantity = async (productid, price) => {
-    let quantity = parseInt(document.getElementById("quantity").value) + 1;
+    let quantity =
+      parseInt(document.getElementById(`quantity-${productid}`).value) + 1;
     await setquantitytocartitem(productid, quantity);
-    document.getElementById("quantity").value = quantity;
+    document.getElementById(`quantity-${productid}`).value = quantity;
     document.getElementById(`total-${productid}`).innerHTML = price * quantity;
     updatetotal();
   };
 
   // ! decrease quantity in cart
   const subtractquantity = async (productid, price) => {
-    let quantity = parseInt(document.getElementById("quantity").value) - 1;
+    console.log(productid);
+
+    let quantity =
+      parseInt(document.getElementById(`quantity-${productid}`).value) - 1;
 
     if (quantity >= 1) {
       await setquantitytocartitem(productid, quantity);
-      document.getElementById("quantity").value = quantity;
+      document.getElementById(`quantity-${productid}`).value = quantity;
       document.getElementById(`total-${productid}`).innerHTML =
         price * quantity;
       updatetotal();
@@ -109,7 +113,7 @@ const Cart = ({ user }) => {
                     </span>
                     <input
                       type="text"
-                      id="quantity"
+                      id={`quantity-${v._id}`}
                       name="quantity"
                       className="form-control input-number"
                       value={v.quantity}
@@ -161,19 +165,9 @@ const Cart = ({ user }) => {
                             <div className="total-value final-value" id="basket-total">130.00</div>
                         </div> */}
             <div className="summary-checkout">
-              {user && (
-                <button className="checkout-cta" onClick={gotocheckout}>
-                  Go to Checkout
-                </button>
-              )}
-              {!user && (
-                <button
-                  className="checkout-cta"
-                  onClick={() => navigate("/signin")}
-                >
-                  Log In to Checkout
-                </button>
-              )}
+              <button className="checkout-cta" onClick={gotocheckout}>
+                Go to Secure Checkout
+              </button>
             </div>
           </div>
         </div>
