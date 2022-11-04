@@ -1,4 +1,5 @@
 const { product1, product2, product3 } = require('./productIdSeed');
+const { user1, user2 } = require('./userIdSeed');
 
 const orderSeed = [
     {
@@ -33,7 +34,7 @@ const orderSeed = [
                 product: product3
             },
         ],
-        user: "63639433a84346ed0fdeb9d5"
+        user: user1
     },
     {
         shippingInfo: {
@@ -67,7 +68,7 @@ const orderSeed = [
                 product: product3
             },
         ],
-        user: "63639433a84346ed0fdeb9d5"
+        user: user1
     },
     {
         shippingInfo: {
@@ -101,7 +102,7 @@ const orderSeed = [
                 product: product3
             },
         ],
-        user: "63639433a84346ed0fdeb9d5"
+        user: user1
     },
     {
         shippingInfo: {
@@ -135,7 +136,7 @@ const orderSeed = [
                 product: product3
             },
         ],
-        user: "63639433a84346ed0fdeb9d5"
+        user: user1
     },
     {
         shippingInfo: {
@@ -169,7 +170,7 @@ const orderSeed = [
                 product: product3
             },
         ],
-        user: "63639433a84346ed0fdeb9d5"
+        user: user1
     },
     {
         shippingInfo: {
@@ -203,7 +204,7 @@ const orderSeed = [
                 product: product3
             },
         ],
-        user: "63639433a84346ed0fdeb9d6"
+        user: user1
     },
 ]
 

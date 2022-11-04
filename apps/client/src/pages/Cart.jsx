@@ -84,13 +84,14 @@ const Cart = ({ user }) => {
           </div>
           {cartItems.map((v, i) => {
             return (
-              <div className="basket-product">
+              <div className="basket-product" key={i}>
                 <div className="item">
                   <div className="product-image">
                     <img
                       src={v.images[0]}
                       alt="Placholder Image 2"
                       className="product-frame"
+                      style={{objectFit: "contain"}}
                     />
                   </div>
                   <div className="product-details">

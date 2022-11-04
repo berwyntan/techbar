@@ -12,4 +12,6 @@ router.get('/logout', userController.handleLogout);
 
 router.get('/refresh', userController.handleRefresh);
 
+router.put('/updateprofile', userController.handleUpdateProfile);
+
 module.exports = router

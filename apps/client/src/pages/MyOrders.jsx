@@ -5,13 +5,76 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/UseAppContext";
+import { toast } from "react-toastify";
+import isEmail from 'validator/lib/isEmail';
+import isLength from 'validator/lib/isLength';
 
 const MyOrders = ({ user }) => {
   const [orders, setOrders] = useState([]); // order state
 
-  const { logOut } = useAppContext(); // get logout method from app context
+  const { logOut, setUser } = useAppContext(); // get logout method from app context
+
+  
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
+  const [password, setPassword] = useState(user.password);
+  const [confirmUpdate, setConfirmUpdate] = useState(false);
 
   const navigate = useNavigate();
+
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+  const handleUpdate = (e) => {
+    e.preventDefault();
+   
+    // validation
+    if (!isLength(name, {min:4})) {
+      toast.error("Name should have more than 4 characters")
+      return
+    } else if (!isLength(name, {max:30})) {
+      toast.error("Name Cannot Exceed 30 Characters")
+      return
+    } else if (!isEmail(email)) {
+      toast.error("Email address is not valid")
+      return
+    } else if (name === user.name && email === user.email){
+      toast.error("No changes to user profile")
+      return
+    }
+
+    setConfirmUpdate(true);
+  };
+  const handleConfirmUpdate = (e) => {
+    e.preventDefault();
+    updateUserProfile();
+    setConfirmUpdate(false);
+  };
+
+  const updateUserProfile = async () => {
+    
+    try {
+      const { data } = await axios.put("/api/user/updateProfile", {
+        name: name,
+        email: email,
+        password: password,
+        _id: user._id
+      });
+      setUser(data.user);
+      toast.success(`Account ${data.user.email} successfully updated`);
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response.data.message);
+      setName(user.name);
+      setEmail(user.email);
+    }
+  }
 
   const getData = async () => {
     try {
@@ -47,7 +110,7 @@ const MyOrders = ({ user }) => {
     <>
       <Header user={user} />
       <br />
-      <h2 className="text-center"> My Orders</h2>
+      {/* <h2 className="text-center"> My Orders</h2> */}
       <br />
       <div
         style={{
@@ -74,7 +137,8 @@ const MyOrders = ({ user }) => {
             alignItems: "center",
           }}
         >
-          <input type="text" placeholder="Update Name" />
+          <input type="text" placeholder="Update Name" value={name} 
+          onChange={handleName} disabled={confirmUpdate}/>
         </div>
         <br />
 
@@ -85,19 +149,22 @@ const MyOrders = ({ user }) => {
             alignItems: "center",
           }}
         >
-          <input type="text" placeholder="Update Email Address" />
+          <input type="text" placeholder="Update Email Address" value={email} 
+          onChange={handleEmail} disabled={confirmUpdate}/>
         </div>
         <br />
-        <div
+        {confirmUpdate && <div
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <input type="password" placeholder="Update Password" />
+          <input type="password" placeholder="Password" 
+            onChange={handlePassword} autoComplete="false"/>
         </div>
-
+        }
+        {confirmUpdate && <p style={{textAlign: 'center', marginTop: '10'}}>Please enter your password to update profile</p>}
         <br />
         <div
           style={{
@@ -107,13 +174,15 @@ const MyOrders = ({ user }) => {
           }}
         >
           {" "}
-          <button className="btn btn-sm btn-danger">Update</button>
+          {confirmUpdate || <button className="btn btn-sm btn-danger" onClick={handleUpdate}>Update My Profile</button>}
+          {confirmUpdate && <button className="btn btn-sm btn-danger" onClick={handleConfirmUpdate}>Update</button>}
         </div>
         <br />
       </form>
       {/* MY PROFILE UPDATE FORM  - END */}
 
       <Container>
+        <h2 className="text-center"> My Orders</h2>
         <br />
         <Table bordered responsive striped>
           <thead>

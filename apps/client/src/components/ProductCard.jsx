@@ -25,7 +25,7 @@ const ProductCard = ({ product }) => {
       <div className="card">
         <div className="card-image">
           {/* product image */}
-          <img src={product.images[0]} alt={product.name} />
+          <img src={product.images[0]} alt={product.name} style={{objectFit: "contain"}}/>
           <div>
             {/* product name */}
             <span

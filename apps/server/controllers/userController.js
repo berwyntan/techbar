@@ -156,27 +156,44 @@ const handleRefresh = async (req, res) => {
     }
 }
 
-const handleUpdateUsername = async (req, res) => {
-    const { _id } = req.session;
+const handleUpdateProfile = async (req, res) => {
+    const { name, email, password, _id } = req.body;
     const foundUser = await User.findOne({_id: _id});
+    console.log(foundUser);
     if (!foundUser) return res.status(401).json({ message: "Error, user is not logged in"});
-
-    const { name } = req.body;
+    
     if (!name) return res.status(400).json({ message: "Error, user name not provided"});
     
     if (name.length < 4) return res.status(400).json({ message: "Error: Name should have more than 4 characters"});
 
     if (name.length > 30) return res.status(400).json({ message: "Error: Name Cannot Exceed 30 Characters"});
 
-        
+    // if (password.length < 6) return res.status(400).json({ message: "Error: Password should have more then 6 characters"});
+
+    const checkDuplicateEmail = await User.findOne({email: email});
+
+    // if email exists check if the id belongs to the same user
+    // if email is new, skip to the try catch
+    if (checkDuplicateEmail) {
+        if (checkDuplicateEmail.name !== foundUser.name) 
+            return res.status(401).json({ message: "This email has been taken"});
+    }   
+    
+    
     try {
         if (foundUser) {
-            const userInfo = {
-                _id: _id,
-                name: foundUser.name,
-                email: foundUser.email
-            }
-            return res.status(200).json({user: userInfo})
+            const result = await bcrypt.compareSync(password, foundUser.password); 
+            if (!result) return res.status(401).json({ message: "Error: Incorrect username or password"})
+            const updateUser = await User.findOneAndUpdate({_id: _id}, { name: name, email: email })
+            return res.status(200).json({
+                message: `${updateUser.email} successfully updated profile`,
+                user: {
+                    name: name,
+                    email: email,
+                    _id: _id
+                },
+                success: true
+            })
         };
         if (!foundUser) return res.status(401).json({ message: "User not previously logged in" })
     } catch (error) {
@@ -185,4 +202,4 @@ const handleUpdateUsername = async (req, res) => {
     }
 }
 
-module.exports = { seedUser, handleSignup, handleLogin, handleLogout, handleRefresh }
+module.exports = { seedUser, handleSignup, handleLogin, handleLogout, handleRefresh, handleUpdateProfile }

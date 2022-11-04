@@ -17,7 +17,7 @@ const CategoryCard = ({ category }) => {
       <div className="card">
         <div className="card-image">
           {/* category image */}
-          <img src={category.image} alt={category.category} />
+          <img src={category.image} alt={category.category} style={{objectFit: "contain"}}/>
         </div>
         {/* category name */}
         <div className="card-content" style={{ marginTop: 0 }}>

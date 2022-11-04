@@ -291,6 +291,7 @@ export function UseAppContextProvider({ children }) {
         cleancart,
         categories,
         featuredproducts,
+        setUser
       }}
     >
       {children}
