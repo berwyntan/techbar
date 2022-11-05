@@ -19,7 +19,7 @@ export default App;
 */
 
 // ! NEW PROPOSED CODE
-import AppRouter from "./Config/Router";
+import AppRouter from "./config/Router";
 import { UseAppContextProvider } from "./context/UseAppContext"; // importing context
 import "./App.css";
 
