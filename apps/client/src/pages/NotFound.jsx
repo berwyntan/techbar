@@ -7,7 +7,7 @@ const NotFound = ({ loading }) => {
     return (
       <div className="loadingscreen">
         <h2 className="mt-2" style={{ fontSize: "45px", color: "white" }}>
-          Loading...
+          Loading....
         </h2>
         <br />
       </div>
