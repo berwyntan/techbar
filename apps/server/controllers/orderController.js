@@ -18,17 +18,21 @@ const seedOrder = async (req, res) => {
 const handleNewOrder = async (req, res) => {
 
   const { shippingInfo, orderItems, user } = req.body;
-
+  console.log(shippingInfo, orderItems, user)
   const { address, city, state, country, pinCode, phoneNo } = shippingInfo;
 
   if (!address || !city || !state || !country || !pinCode || !phoneNo) {
     return res.status(400).json({ message: "Shipping info form incomplete"})
   }
+  
+  // const { name, quantity, price, image, product } = orderItems;
+  // console.log(name, quantity, price, image, product);
 
-  const { name, quantity, price, image, product } = orderItems;
-  if (!name || !quantity || !price || !image || !product) {
-    return res.status(400).json({ message: "Product info incomplete"})
-  }
+  orderItems.map(item => {
+    if (!item.name || !item.quantity || !item.price || !item.image || !item.product) {
+      return res.status(400).json({ message: "Product info incomplete"})
+    }
+  })
 
   if (!user) return res.status(400).json({ message: "User info not found"})
 
@@ -37,9 +41,9 @@ const handleNewOrder = async (req, res) => {
     orderItems,
     user
   })
-
+  
   try {
-    if (result) return res.status(201).json(result)
+    if (result) return res.status(201).json({ success: true, order: result});
     if (!result) return res.status(400).json({ message: "Error: order not created"})
   } catch (error) {
     console.log(error);

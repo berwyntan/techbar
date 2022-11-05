@@ -62,7 +62,10 @@ const Cart = ({ user }) => {
 
   // goto checkout
   const gotocheckout = () => {
-    navigate("/checkout");
+    if (user) {
+      navigate("/checkout");
+    } else navigate("/signin")
+    
   };
 
   //rendering our ui

@@ -103,7 +103,7 @@ export function UseAppContextProvider({ children }) {
   async function getData() {
     try {
       // getting products from api call
-      console.log("call product api test")
+      // console.log("call product api test")
       const { data } = await axios.get(`/api/product`);
       // console.log(data);
 
@@ -226,7 +226,7 @@ export function UseAppContextProvider({ children }) {
 
   useEffect(() => {
     //loading true
-    console.log("testing");
+    
     setLoading(true);
 
     const unsubscribe = async () => {
@@ -236,8 +236,12 @@ export function UseAppContextProvider({ children }) {
         // verify token , check f user is logged in
 
         const { data } = await axios.get("/api/user/refresh");
-        // console.log(data)
+        console.log(data)
         // set user to state
+        if (data.refresh === false) {
+          setLoading(false);
+          return
+        }
         setUser(data.user);
         
         // loading false

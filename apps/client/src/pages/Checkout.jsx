@@ -11,6 +11,19 @@ function Checkout({ user }) {
   const { cartItems, cleancart } = useAppContext(); // getting cart items and clean cart function from app context
   const [total, setTotal] = useState(0);
 
+  const orderItems = cartItems.map(item => {
+    return (
+      {
+        name: item.name,
+        quantity: JSON.stringify(item.quantity),
+        price: JSON.stringify(item.price),
+        image: item.images[0],
+        product: item._id
+      }
+    )
+  });
+
+
   // checkout fields
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -58,8 +71,9 @@ function Checkout({ user }) {
 
       try {
         // api call to create order
-        const { data } = await axios.post("/api/neworder", {
-          orderItems: cartItems,
+
+        const { data } = await axios.post("/api/order", {
+          orderItems,
           shippingInfo: {
             address: address,
             city: city,
@@ -68,10 +82,12 @@ function Checkout({ user }) {
             pinCode: zip,
             phoneNo: phone,
           },
+          user: user._id
         });
 
         if (data.success) {
-          toast.success("Order Created Successfully");
+          
+          toast.success(`Order ${data.order._id} Created Successfully`);
           cleancart();
           setTimeout(() => {
             navigate("/");

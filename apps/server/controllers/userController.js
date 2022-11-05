@@ -149,7 +149,10 @@ const handleRefresh = async (req, res) => {
             }
             return res.status(200).json({user: userInfo})
         };
-        if (!foundUser) return res.status(401).json({ message: "User not previously logged in" })
+        if (!foundUser) return res.status(401).json({ 
+            message: "User not previously logged in",
+            refresh: false
+        })
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: `${error}` })
