@@ -6,6 +6,8 @@ router.get('/seed', productController.seedProduct);
 
 router.get('/category/:category', productController.getProductsByCategory);
 
+router.get('/category/one/:category', productController.getOneProductByCategory);
+
 router.get('/:id', productController.getProductById);
 
 router.get('/', productController.getAllProducts)

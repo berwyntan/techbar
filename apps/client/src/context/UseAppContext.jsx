@@ -122,7 +122,7 @@ export function UseAppContextProvider({ children }) {
     try {
       // getting categories from api call
       const { data } = await axios.get(`/api/category`);
-      console.log(data);
+      // console.log(data);
 
       // set categories to categories state
       setCategories(data.categories);
@@ -136,32 +136,67 @@ export function UseAppContextProvider({ children }) {
   // ! getting featured products
   async function getFeaturedProducts() {
     // initializing empy array to store unique category id
-    const uniqueIds = [];
+    // const uniqueIds = [];
+    // const featuredProducts = [];
+
+    // get all category ids
+    try {
+      const dataCat = await axios.get("/api/category");
+      // console.log("cate", dataCat)
+      const categories = dataCat.data.categories.map(cat => {
+        return cat._id;
+      })
+      console.log(categories)
+
+      const { data } = await axios.get(`/api/product`);
+      console.log(data.products);
+      
+      const featuredProducts = categories.map(cat => {
+        return cat
+      })
+      console.log(featuredProducts);
+
+    } catch (error) {
+      console.log(error);
+    }
+
+    
+
+    // get 1 item from each category
+    // const unique = categories.map(cat => {
+    //   const item = async() => {
+    //     const data = await axios.get(`/api/product/category/one/${cat}`);
+    //     console.log(data)
+    //     return data
+    //   }
+    //   return item
+    // })
 
     // ! geting all products from api
-    const { data } = await axios.get(`/api/product`);
-    // console.log(data);
+    
+    
+
 
     // ! filering  only one product from each category
-    if (data.length >= 0) {
-      const unique = data.products.filter((element) => {
-        if (element.category) {
-          const isDuplicate = uniqueIds.includes(element.category._id);
+    // if (data.length >= 0) {
+      // const unique = data.products.filter((element) => {
+        // if (element.category) {
+        //   const isDuplicate = uniqueIds.includes(element.category._id);
 
-          if (!isDuplicate) {
-            uniqueIds.push(element.category._id);
+        //   if (!isDuplicate) {
+        //     uniqueIds.push(element.category._id);
 
-            return true;
-          }
+        //     return true;
+        //   }
 
-          return false;
-        }
-      });
+        //   return false;
+        // }
+      // });
 
       // ! set unique products to featured products state
-
-      setFeaturedProducts(unique);
-    }
+      
+      // setFeaturedProducts(unique);
+    // }
   }
 
   // ! function for add product to cart
