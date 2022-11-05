@@ -152,15 +152,15 @@ export function UseAppContextProvider({ children }) {
       console.log(data.products);
       
       const featuredProducts = categories.map(cat => {
-        return cat
+        const found = data.products.find(product => product.category._id === cat);
+        return found
       })
       console.log(featuredProducts);
+      setFeaturedProducts(featuredProducts);
 
     } catch (error) {
       console.log(error);
     }
-
-    
 
     // get 1 item from each category
     // const unique = categories.map(cat => {
@@ -174,9 +174,6 @@ export function UseAppContextProvider({ children }) {
 
     // ! geting all products from api
     
-    
-
-
     // ! filering  only one product from each category
     // if (data.length >= 0) {
       // const unique = data.products.filter((element) => {
