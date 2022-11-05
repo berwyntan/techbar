@@ -226,6 +226,7 @@ export function UseAppContextProvider({ children }) {
 
   useEffect(() => {
     //loading true
+    console.log("testing");
     setLoading(true);
 
     const unsubscribe = async () => {
