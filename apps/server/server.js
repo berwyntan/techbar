@@ -38,6 +38,10 @@ app.use("/api/category", categoryRouter);
 app.use("/api/order", orderRouter);
 app.use("/api/user", userRouter);
 
+app.get("/*", (req, res) => {
+  res.sendFile(path.resolve("../client/dist/index.html"));
+});
+
 mongoose.connection.on("connected", () => {
   console.log("Connected to mongoDB");
   app.listen(PORT, () => {
