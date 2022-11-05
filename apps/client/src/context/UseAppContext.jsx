@@ -20,7 +20,7 @@ export function UseAppContextProvider({ children }) {
 
     try {
       // ! make api call to backend
-      const { data } = await axios.post("/api/user/login", {
+      const { data } = await axios.post("https://sore-blue-turtle-hat.cyclic.app/api/user/login", {
         email,
         password,
       });
@@ -48,7 +48,7 @@ export function UseAppContextProvider({ children }) {
     setLoading(true);
     try {
       // makeing  api call
-      const { data } = await axios.post("/api/user/signup", {
+      const { data } = await axios.post("https://sore-blue-turtle-hat.cyclic.app/api/user/signup", {
         name,
         email,
         password,
@@ -79,7 +79,7 @@ export function UseAppContextProvider({ children }) {
     setLoading(true);
     try {
       // make api call
-      const { data } = await axios.get("/api/user/logout");
+      const { data } = await axios.get("https://sore-blue-turtle-hat.cyclic.app/api/user/logout");
 
       // set user state to empty
       setUser({});
@@ -103,7 +103,7 @@ export function UseAppContextProvider({ children }) {
   async function getData() {
     try {
       // getting products from api call
-      const { data } = await axios.get(`/api/product`);
+      const { data } = await axios.get(`https://sore-blue-turtle-hat.cyclic.app/api/product`);
       // console.log(data);
 
       // set products to products state
@@ -120,7 +120,7 @@ export function UseAppContextProvider({ children }) {
   async function getCategories() {
     try {
       // getting categories from api call
-      const { data } = await axios.get(`/api/category`);
+      const { data } = await axios.get(`https://sore-blue-turtle-hat.cyclic.app//api/category`);
       console.log(data);
 
       // set categories to categories state
@@ -233,7 +233,7 @@ export function UseAppContextProvider({ children }) {
       try {
         // verify token , check f user is logged in
 
-        const { data } = await axios.get("/api/user/refresh");
+        const { data } = await axios.get("https://sore-blue-turtle-hat.cyclic.app/api/user/refresh");
         // console.log(data)
         // set user to state
         setUser(data.user);
