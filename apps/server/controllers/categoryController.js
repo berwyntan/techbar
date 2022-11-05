@@ -18,7 +18,7 @@ const getAllCategory = async (req, res) => {
     console.log(result[0]._id)
     try {
         if (result) return res.status(200).json({categories: result})
-        else return res.status(400).json({ message: "Get all category error"})
+        else return res.status(400).json({ message: "Error: Get all category error"})
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Server error" });
