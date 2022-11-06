@@ -146,16 +146,16 @@ export function UseAppContextProvider({ children }) {
       const categories = dataCat.data.categories.map(cat => {
         return cat._id;
       })
-      console.log(categories)
+      // console.log(categories)
 
       const { data } = await axios.get(`/api/product`);
-      console.log(data.products);
+      // console.log(data.products);
       
       const featuredProducts = categories.map(cat => {
         const found = data.products.find(product => product.category._id === cat);
         return found
       })
-      console.log(featuredProducts);
+      // console.log(featuredProducts);
       setFeaturedProducts(featuredProducts);
 
     } catch (error) {
@@ -299,9 +299,12 @@ export function UseAppContextProvider({ children }) {
       }
     };
 
-    return () => {
-      unsubscribe();
-    };
+    // return () => {
+    //   unsubscribe();
+    // };
+
+    unsubscribe();
+
   }, []);
 
   useEffect(() => {

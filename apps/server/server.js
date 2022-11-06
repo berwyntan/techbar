@@ -22,8 +22,8 @@ mongoose.connect(process.env.MONGO_URL);
 mongoose.set("debug", true);
 
 // middleware
-app.set('trust proxy', 1); // trust first proxy
 app.use(express.static("../client/dist"));
+app.set('trust proxy', 1); // trust first proxy
 app.use(cors());
 
 app.use(
