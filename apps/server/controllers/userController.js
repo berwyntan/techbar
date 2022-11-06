@@ -137,6 +137,7 @@ const handleLogout = async (req, res) => {
 }
 
 const handleRefresh = async (req, res) => {
+    console.log(req.session);
     const { _id } = req.session;
     const foundUser = await User.findOne({_id: _id});
     
