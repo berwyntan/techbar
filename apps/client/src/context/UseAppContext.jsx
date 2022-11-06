@@ -267,7 +267,9 @@ export function UseAppContextProvider({ children }) {
       try {
         // verify token , check f user is logged in
 
-        const { data } = await axios.get("/api/user/refresh");
+        const { data } = await axios.get("/api/user/refresh", {
+          withCredentials: true
+        });
         console.log(data)
         // set user to state
         if (data.refresh === false) {
