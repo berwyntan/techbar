@@ -129,6 +129,7 @@ const handleLogout = async (req, res) => {
             req.session.name = null;
             req.session.email = null;
             req.session._id = null;
+            req.session.save();
             return res.status(200).json({ message: `account ${email} successfully logged out`})
         }
         if (!result) return res.status(401).json({ message: "Cannot logout, user info not found" });
