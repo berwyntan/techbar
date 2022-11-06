@@ -25,7 +25,7 @@ mongoose.set("debug", true);
 app.set('trust proxy', 1); // trust first proxy
 app.use(express.static("../client/dist"));
 
-app.use(cors({credentials: true, origin: true}));
+app.use(cors(corsOptions));
 
 app.use(
   session(sessionOptions)

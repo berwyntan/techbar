@@ -13,6 +13,11 @@ export function UseAppContextProvider({ children }) {
   const [loading, setLoading] = useState(true); // setting loading state true by default
   const [status, setStatus] = useState("start"); // set state for app start by default
 
+  // headers for axios
+  const headers = {
+    withCredentials: true,
+  }
+
   //! login function
   async function logIn(email, password) {
     // set load to true
@@ -23,6 +28,9 @@ export function UseAppContextProvider({ children }) {
       const { data } = await axios.post("/api/user/login", {
         email,
         password,
+      },
+      {
+        headers: headers
       });
       console.log(data);
 
@@ -79,7 +87,9 @@ export function UseAppContextProvider({ children }) {
     setLoading(true);
     try {
       // make api call
-      const { data } = await axios.get("/api/user/logout");
+      const { data } = await axios.get("/api/user/logout", {
+        headers: headers
+      });
 
       // set user state to empty
       setUser({});
@@ -268,7 +278,7 @@ export function UseAppContextProvider({ children }) {
         // verify token , check f user is logged in
 
         const { data } = await axios.get("/api/user/refresh", {
-          withCredentials: true
+          headers: headers
         });
         console.log(data)
         // set user to state
