@@ -98,7 +98,7 @@ const handleLogin = async (req, res) => {
             req.session.name = foundUser.name;
             req.session.email = foundUser.email;
             req.session._id = foundUser._id;
-            // console.log(req.session)
+            console.log(req.session)
             if (result) return res.status(200).json({ 
                 message: `${foundUser.email} successfully logged in`,
                 user: {
