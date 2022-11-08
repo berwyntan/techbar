@@ -13,11 +13,15 @@ const CategoryCard = ({ category }) => {
   // rendering our ui
   return (
     <>
-      {/* category cart */}
+      {/* category card */}
       <div className="card">
         <div className="card-image">
           {/* category image */}
-          <img src={category.image} alt={category.category} style={{objectFit: "contain"}}/>
+          <img
+            src={category.image}
+            alt={category.category}
+            style={{ objectFit: "contain" }}
+          />
         </div>
         {/* category name */}
         <div className="card-content" style={{ marginTop: 0 }}>
