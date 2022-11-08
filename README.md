@@ -67,8 +67,8 @@ Tech Bar is a gadgets e-commerce web app that enables end users to perform all n
 | dotenv           | react-image-gallery |
 | bcrypt           | axios               |
 | morgan           | validator           |
-| dev.dep: nodemon | react               |
-|                  | react-dom           |
+| connect-mongo    | react               |
+| dev.dep: nodemon | react-dom           |
 
 ## 👨🏽‍💻 Project Development Approach
 
