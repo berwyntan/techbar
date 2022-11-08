@@ -6,47 +6,55 @@ Tech Bar is a gadgets e-commerce web app that enables end users to perform all n
 
 ##
 
-- View Featured Products on the Home Page
+- ### View Featured Products on the Home Page
   ![Imgur](https://i.imgur.com/qommxji.png)
-- Navigate to All Products & All Categories pages individually
-- Navigate to the individual Product Page
-- Add multiple products to cart via <b>“Add to Cart”</b> button featured directly on the <b>product card</b>
-- Add multiple products on the Cart page
+- ### Navigate to All Products & All Categories pages individually
+- ### Navigate to the individual Product Page
+- ### Add multiple products to cart via <b>“Add to Cart”</b> button featured directly on the <b>product card</b>
+- ### Add multiple products on the Cart page
   ![Imgur](https://i.imgur.com/Anxzjm6.png)
-  <br></br>
-- Increment/Decrement product quantity on the Cart page
+- ### Increment/Decrement product quantity on the Cart page
   ![Imgur](https://i.imgur.com/1nmmlsC.png)
-  <br></br>
-- Proceed to the Checkout (if already have an account or logged in). If not just yet proceed to => SignUp
-- SignUp (Create a new account) and proceed to => Login
+- ### Proceed to the Checkout (if already have an account or logged in). If not just yet proceed to => SignUp
+- ### SignUp (Create a new account) and proceed to => Login
   ![Imgur](https://i.imgur.com/FhtXV6s.png)
-  <br></br>
-- Login
+- ### Login
   ![Imgur](https://i.imgur.com/EhO2knW.png)
-  <br></br>
-- Checkout / Create an Order (submit shipping info)
+- ### Checkout / Create an Order (submit shipping info)
   ![Imgur](https://i.imgur.com/GGNNyqO.png)
-  <br></br>
 
-<b>On "My Orders" Page:</b>
+## On "My Orders" Page:
 
-- View all my order
+- ### View all my order
+
   ![Imgur](https://i.imgur.com/7Ihw0dB.png)
-  <br></br>
-- Click on "View Order Details"
+
+- ### Click on "View Order Details"
+
   ![Imgur](https://i.imgur.com/ZVyYkID.png)
-  <br></br>
-- Update my profile
+
+- ### Update my profile
+
   ![Imgur](https://i.imgur.com/ULGzLs5.png)
-  <br></br>
-  Logout
+
+- ### Logout
+
   ![Imgur](https://i.imgur.com/Ju8W8pc.png)
-  <br></br>
-- <b>Cancel Order</b> on the OrderDetail page
+
+- ### <b>Cancel Order</b> on the OrderDetail page
   ![Imgur](https://i.imgur.com/yPbFxys.png)
-  <br></br>
 
 ## 🧩 Tech Bar Wireframing
+
+### SITE ARTITECTURE
+
+![Imgur](https://i.imgur.com/wKRYVfi.png)
+
+### FRONTEND
+
+![Imgur](https://i.imgur.com/obGNZ9q.png)
+
+### BACKEND
 
 ## 💻 Technologies & Libraries Used
 
@@ -87,8 +95,13 @@ npm run dev
 ```
 
 ALTERNATIVELY
-👉 [CHECK OUT TECH BAR HERE](sore-blue-turtle-hat.cyclic.app/)
+👉 [CHECK OUT TECH BAR HERE](https://sore-blue-turtle-hat.cyclic.app/)
 
-## Site Images Courtesy
+## 🔉 Site Images & Product Description Courtesy
 
-Amazon.com
+- Amazon.com (Products)
+- Unsplash.com (Home page carousel)
+
+## ❗ Disclaimer
+
+This is a student project that was designed for learning and training purposes only and is not intended for any commercial use.
