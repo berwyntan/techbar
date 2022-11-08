@@ -56,6 +56,8 @@ Tech Bar is a gadgets e-commerce web app that enables end users to perform all n
 
 ### BACKEND
 
+![Imgur](https://i.imgur.com/7VqdZAr.png)
+
 ## 💻 Technologies & Libraries Used
 
 | <b>Backend</b>   | <b>Frontend</b>     |
