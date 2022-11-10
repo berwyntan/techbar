@@ -101,6 +101,12 @@ Tech Bar is a gadgets e-commerce web app that enables end users to perform all n
 
 3. <b>Backend functionality with connection to the frontend:</b>
 
+- Create the backend using MVC model
+- Modularise backend functionality: controller, model, route, config
+- Create APIs based on the requirements of the frontend
+- Use express-session to create a cookie to send to the front end for authentication
+- Use connect-mongo to store the cookies in MongoDB 
+
 ## 🧰 Tech Bar Installation
 
 To run Tech Bar app locally:
