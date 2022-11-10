@@ -60,12 +60,11 @@ const Cart = ({ user }) => {
     updatetotal();
   }, [cartItems, total]);
 
-  // goto checkout
+  // ! go to checkout
   const gotocheckout = () => {
     if (user) {
       navigate("/checkout");
-    } else navigate("/signin")
-    
+    } else navigate("/signin");
   };
 
   //rendering our ui
@@ -94,7 +93,7 @@ const Cart = ({ user }) => {
                       src={v.images[0]}
                       alt="Placholder Image 2"
                       className="product-frame"
-                      style={{objectFit: "contain"}}
+                      style={{ objectFit: "contain" }}
                     />
                   </div>
                   <div className="product-details">
@@ -169,7 +168,13 @@ const Cart = ({ user }) => {
                             <div className="total-value final-value" id="basket-total">130.00</div>
                         </div> */}
             <div className="summary-checkout">
-              <button className="checkout-cta" onClick={gotocheckout}>
+              <button
+                className="checkout-cta"
+                style={{
+                  background: "#04AA6D",
+                }}
+                onClick={gotocheckout}
+              >
                 Go to Secure Checkout
               </button>
             </div>

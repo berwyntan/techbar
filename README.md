@@ -2,20 +2,24 @@
 
 ## 🧐 About this Web App
 
-Tech Bar is a gadgets e-commerce web app that enables end users to perform all nesesary <b>CRUD</b> requests to achieve the <b>folowing results:</b>
+Tech Bar is a gadgets e-commerce web app that enables end users to perform all nesesary <b>CRUD</b> operations and HTTP requests to achieve the <b>folowing results:</b>
 
 ##
 
 - ### View Featured Products on the Home Page
   ![Imgur](https://i.imgur.com/qommxji.png)
-- ### Navigate to All Products & All Categories pages individually
-- ### Navigate to the individual Product Page
+- ### View All Products & All Categories pages individually
+  ![Imgur](https://i.imgur.com/NUCOnXw.png)
+- ### View the individual Product Page
+  ![Imgur](https://i.imgur.com/Q0xYLDC.png)
 - ### Add multiple products to cart via <b>“Add to Cart”</b> button featured directly on the <b>product card</b>
+  ![Imgur](https://i.imgur.com/xYirHLu.png)
 - ### Add multiple products on the Cart page
   ![Imgur](https://i.imgur.com/Anxzjm6.png)
 - ### Increment/Decrement product quantity on the Cart page
   ![Imgur](https://i.imgur.com/1nmmlsC.png)
 - ### Proceed to the Checkout (if already have an account or logged in). If not just yet proceed to => SignUp
+  ![Imgur](https://i.imgur.com/tWTOIWn.png)
 - ### SignUp (Create a new account) and proceed to => Login
   ![Imgur](https://i.imgur.com/FhtXV6s.png)
 - ### Login
@@ -69,10 +73,33 @@ Tech Bar is a gadgets e-commerce web app that enables end users to perform all n
 | dotenv           | react-image-gallery |
 | bcrypt           | axios               |
 | morgan           | validator           |
-| connect-mongo    | react               |
-| dev.dep: nodemon | react-dom           |
+| dev.dep: nodemon | react               |
+|                  | react-dom           |
 
 ## 👨🏽‍💻 Project Development Approach
+
+### Tech Bar Development approach consists of 3 major parts:
+
+1. <b>Project Type & Wireframing:</b>
+
+- Define general project functionality
+- Define DB Models
+- Deciding on libraries
+- Research & Create Seed Data
+- Design Site Architecture
+- Design schematic depiction of front and backend
+
+2. <b>Frontend design and functionality:</b>
+
+- Designing Components
+- Designing Pages
+- Writing & configuring routes as it contains all navigation paths to all pages
+- Writing UseAppContext as it wraps the app and contains all major functions with API calls
+- Layering navigation and respective data functionality in Pages and Components
+- Custom CSS was researched on and written in parallel with the rest of the frontend
+- Tech Bar Web App’s interface responsiveness is achieved via @media quieries
+
+3. <b>Backend functionality with connection to the frontend:</b>
 
 ## 🧰 Tech Bar Installation
 
