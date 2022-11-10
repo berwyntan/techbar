@@ -50,7 +50,7 @@ Tech Bar is a gadgets e-commerce web app that enables end users to perform all n
 
 ## 🧩 Tech Bar Wireframing
 
-### SITE ARTITECTURE
+### SITE ARCHITECTURE
 
 ![Imgur](https://i.imgur.com/wKRYVfi.png)
 
