@@ -22,7 +22,7 @@ const OrderDetail = ({ user }) => {
       if (data.success === true) {
         // set order in state
         setOrder(data.order);
-        // console.log(data.order)
+        console.log(data.order)
         setLoading(false);
       } else {
         navigate("/myorders");
@@ -97,9 +97,10 @@ const OrderDetail = ({ user }) => {
             </thead>
             <tbody>
               {order.orderItems.map((v, i) => {
+
                 return (
                   <tr key={i}>
-                    <td><Link to={`/product/${v.product}`}>{v.name}</Link></td>
+                    <td><Link to={`/product/${v.product._id}`}>{v.product.name}</Link></td>
                     <td>${v.price}</td>
                     <td>{v.quantity}</td>
                   </tr>

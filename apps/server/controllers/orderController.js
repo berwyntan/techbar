@@ -54,7 +54,8 @@ const handleNewOrder = async (req, res) => {
 const getOrdersByUser = async (req, res) => {
   const { user } = req.params;
 
-  const result = await Order.find({user: user}) //.populate().exec();
+  const result = await Order.find({user: user});
+
 
   try {
     if (!result) return res.status(204).json({ message: "Error, user not found" })
@@ -75,13 +76,18 @@ const getOrdersByUser = async (req, res) => {
 const getOrderById = async (req, res) => {
   const { id } = req.params;
 
-  const result = await Order.findOne({_id: id})
+  const result = await Order.findOne({_id: id}).populate({
+    path: "orderItems",
+    populate: { path: 'product'}
+  }).exec();
+
+  console.log(result.orderItems[0].product)
 
   try {
     if (!result) return res.status(204).json({ message: "Error, order not found" })
     if (result) {
       
-      console.log(result)
+      // console.log(result)
       return res.status(200).json({
         order: result,
         success: true

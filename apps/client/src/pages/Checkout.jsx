@@ -14,10 +14,10 @@ function Checkout({ user }) {
   const orderItems = cartItems.map(item => {
     return (
       {
-        name: item.name,
+        // name: item.name,
         quantity: JSON.stringify(item.quantity),
         price: JSON.stringify(item.price),
-        image: item.images[0],
+        // image: item.images[0],
         product: item._id
       }
     )

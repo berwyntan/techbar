@@ -32,7 +32,7 @@ const orderSchema = new mongoose.Schema({
     {
       name: {
         type: String,
-        required: true,
+        // required: true,
       },
       quantity: {
         type: String,
@@ -44,7 +44,7 @@ const orderSchema = new mongoose.Schema({
       },
       image: {
         type: String,
-        required: true,
+        // required: true,
       },
       product: {
         type: mongoose.Schema.ObjectId,
