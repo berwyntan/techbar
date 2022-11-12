@@ -233,6 +233,10 @@ const handleUpdateProfile = async (req, res) => {
         { _id: _id },
         { name: name, email: email }
       );
+      req.session.name = name;
+      req.session.email = email;
+      req.session._id = _id;
+      req.session.save();
       return res.status(200).json({
         message: `${updateUser.email} successfully updated profile`,
         user: {
