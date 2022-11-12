@@ -29,7 +29,7 @@ const handleNewOrder = async (req, res) => {
   // console.log(name, quantity, price, image, product);
 
   orderItems.map(item => {
-    if (!item.name || !item.quantity || !item.price || !item.image || !item.product) {
+    if (/*!item.name ||*/ !item.quantity || !item.price || /*!item.image ||*/ !item.product) {
       return res.status(400).json({ message: "Product info incomplete"})
     }
   })
